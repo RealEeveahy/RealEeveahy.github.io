@@ -1,0 +1,60 @@
+.homeButton{
+    top: 0;
+    left: 0;
+    background-color: green;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    float: left;
+}
+.socialButton{
+    top: 0;
+    left: 0;
+    background-color: grey;
+    height: 30px;
+    width: 30px;
+    border-radius: 20px;
+    margin-top: 5px;
+    float: left;
+}
+
+.buttonPanel {
+    position: sticky;
+    max-height: fit-content;
+}
+
+head {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.helloMessage {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.mainBody {
+    margin-left: 10%;
+}
+
+.contentSection {
+    margin-top: 100px;
+}
+
+.sectionHeader {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.contentHolder {
+    display: inline;
+}
+
+.portfolioItem {
+    background-color: hotpink;
+}
+
+.piImage {
+    max-width: 50px;
+    max-height: 50px;
+}
