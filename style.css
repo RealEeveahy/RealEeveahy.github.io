@@ -22,6 +22,7 @@
 .buttonPanel {
     display: flex;
     flex-direction: column;
+    padding: 20px;
 }
 
 head {
@@ -43,12 +44,16 @@ body {
 }
 
 .contentSection {
-    margin-top: 100px;
+    padding-top: 100px;
 }
 
 .sectionHeader {
     font-size: 18px;
     font-weight: bold;
+}
+
+.lowerHeading {
+    color: #FFFFFF;
 }
 
 .contentHolder {
@@ -59,6 +64,7 @@ body {
     max-width: 75%;
     display: flex;
     padding: 20px;
+    margin-top: 30px;
 }
 
 .piImage {
@@ -72,12 +78,23 @@ body {
 .descriptionContainer {
     vertical-align: top;
     float: left;
-    background-color: darkgray;
+    background-color: #FFFFFF;
     border-radius: 20px;
 }
 
 p.itemDescription {
-    padding: 20px
+    padding: 20px;
+    color: black;
+}
+
+.itemTag {
+    float: left;
+    margin-top: -30px;
+    margin-left: 20px;
+    height: fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 30px;
 }
 
 .itemLink {
