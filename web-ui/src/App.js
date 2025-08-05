@@ -15,15 +15,25 @@ function Section({sectionName, children})
   );
 }
 
-function Item({itemName, imgSource, children})
+function Item({itemName, imgSource, imageLeft, children})
 {
-  return (
-    <div className="portfolioItem">
-      <img className="piImage" src={imgSource} alt={itemName + "-icon"}/>
-      <div className="descriptionContainer">
-        {children}
+  if (imageLeft)
+    return (
+      <div className="portfolioItem">
+        <img className="piImage" src={imgSource} alt={itemName + "-icon"}/>
+        <div className="descriptionContainer">
+          {children}
+        </div>
       </div>
-    </div>
+  );
+  else
+    return (
+      <div className="portfolioItem">
+        <div className="descriptionContainer">
+          {children}
+        </div>
+        <img className="piImage" src={imgSource} alt={itemName + "-icon"}/>
+      </div>
   );
 }
 
@@ -70,7 +80,7 @@ function App() {
                 </p>
             </div>
             <Section sectionName={"GAMES"}>
-              <Item itemName={"Delivery Driver"} imgSource={"resource/dd_icon.png"}>
+              <Item itemName={"Delivery Driver"} imgSource={"resource/dd_icon.png"} imageLeft={true}>
                 <p className="itemDescription">
                                 Delivery Driver is my first ever app store release, and a huge milestone for me in many ways. 
                                 This project gave me a lot of experience employing C# object-oriented practices alongside Unity 
@@ -80,7 +90,7 @@ function App() {
                 <ItemLink link={"https://apps.apple.com/app/id1671405752"} iconSource={"resource/apple_icon.png"}/>
                 <ItemLink link={"https://cleanestcat.itch.io/delivery-driver"} iconSource={"resource/itch_icon.png"}/>
               </Item>
-              <Item itemName={"Between2Stones"} imgSource={"resource/b2s_icon.png"}>
+              <Item itemName={"Between2Stones"} imgSource={"resource/b2s_icon.png"} imageLeft={false}>
                 <p className="itemDescription">
                                 Between2Stones was my first time attempting a game-jam, being a submission to 
                                 GBJam 11 hosted on itch.io. This gave me the experience of developing a game that is 
@@ -91,16 +101,24 @@ function App() {
                 </p>
                 <ItemLink link={"https://cleanestcat.itch.io/between2stones"} iconSource={"resource/itch_icon.png"}/>
               </Item>
-              <Item itemName={"8-Bit Apocalypse"} imgSource={"resource/temp_apoc_icon.png"}>
+              <Item itemName={"8-Bit Apocalypse"} imgSource={"resource/temp_apoc_icon.png"} imageLeft={true}>
                 <p className="itemDescription">
                                 8-Bit-Apocalypse swas built as a proof-of-concept for a Game-Boy style game made within Unity, 
-                                which would eventually extend to my submission for GBJam 11. 
+                                which would eventually extend to my submission for5 GBJam 11. 
                 </p>
                 <ItemLink link={"https://cleanestcat.itch.io/delivery-driver"} iconSource={"resource/itch_icon.png"}/>
               </Item>
             </Section>
             <Section sectionName={"APPS"}>
-
+              <Item itemName={"PinHoard"} imageLeft={true} imgSource={"resource/gh_icon.png"}>
+                <p className="itemDescription">
+                      PinHoard allows dynamic creation of notes in a grid arrangement where each note 
+                      may contain a range of modular components as the user wishes, such as titles, text boxes and lists. 
+                      This application further extends the notes taken by a user, allowing them to compile and read multiple 
+                      'boards' at one time, as well as revise the contents stored in a board with quizzes based on those notes.
+                </p>
+                <ItemLink link={"https://github.com/RealEeveahy/PinHoard"} iconSource={"resource/gh_icon.png"}/>
+              </Item>
             </Section>
             <Section sectionName={"OTHER PROJECTS"}>
 
