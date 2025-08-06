@@ -23,6 +23,7 @@ function Item({itemName, imgSource, imageLeft, primaryColour, children})
       <div className="portfolioItem">
         <img className="piImage" src={imgSource} alt={itemName + "-icon"}/>
         <div className="descriptionContainer" style={{boxShadow: shadow}}>
+          <ItemTag content={itemName} colour={primaryColour}/>
           {children}
         </div>
       </div>
@@ -31,6 +32,7 @@ function Item({itemName, imgSource, imageLeft, primaryColour, children})
     return (
       <div className="portfolioItem">
         <div className="descriptionContainer" style={{boxShadow: shadow}}>
+          <ItemTag content={itemName} colour={primaryColour}/>
           {children}
         </div>
         <img className="piImage" src={imgSource} alt={itemName + "-icon"}/>
@@ -126,15 +128,17 @@ function App() {
               <ItemTag content={"C#"} colour={"#000000"}/>
               <ItemTag content={"Unity"} colour={"#000000"}/>
               <p className="itemDescription">
-                              8-Bit-Apocalypse was built as a proof-of-concept for a Game-Boy style game made within Unity, 
-                              which would eventually extend to my submission for5 GBJam 11. 
+                              A tower-defense and resource-management game which 
+                              was built as a proof-of-concept for a Game-Boy style game made within Unity. 
+                              This style and concept would eventually extend to my submission for GBJam 11. 
+                              I also created all artwork and sound featured within the game!
               </p>
               <ItemLink link={"https://cleanestcat.itch.io/delivery-driver"} iconSource={"resource/itch_icon.png"}/>
             </Item>
           </Section>
 
           <Section sectionName={"APPS"}>
-            <Item itemName={"PinHoard"} imageLeft={true} imgSource={"resource/gh_icon.png"}>
+            <Item itemName={"PinHoard"} imageLeft={true} imgSource={"resource/gh_icon.png"} primaryColour={"#ffae62ff"}>
               <ItemTag content={"C#"} colour={"#000000"}/>
               <ItemTag content={"WPF"} colour={"#000000"}/>
               <p className="itemDescription">
@@ -145,10 +149,31 @@ function App() {
               </p>
               <ItemLink link={"https://github.com/RealEeveahy/PinHoard"} iconSource={"resource/gh_icon.png"}/>
             </Item>
+            <Item itemName={"DesktopZoo"} imageLeft={false} imgSource={"resource/gh_icon.png"} primaryColour={"#62a6ffff"}>
+              <ItemTag content={"Python"} colour={"#000000"}/>
+              <ItemTag content={"TKinter"} colour={"#000000"}/>
+              <p className="itemDescription">
+                    Allows the user to create and interact with custom Desktop Pets. Pets may be created from sprite-sheets that 
+                    the user imports, giving the pet various animations for different actions. 
+                    Comes packaged with some pets of my own.
+              </p>
+              <ItemLink link={"https://github.com/RealEeveahy/DelightfulDesktopZoo"} iconSource={"resource/gh_icon.png"}/>
+            </Item>
           </Section>
 
           <Section sectionName={"OTHER PROJECTS"}>
-
+            <Item itemName={"Teams-R-Us"} imageLeft={true} imgSource={"resource/gh_icon.png"} primaryColour={"#a1a1a1ff"}>
+              <ItemTag content={"UI-Design"} colour={"#000000"}/>
+              <ItemTag content={"XAML"} colour={"#000000"}/>
+              <ItemTag content={"WPF"} colour={"#000000"}/>
+              <p className="itemDescription">
+                    A visual prototype of a hypothetical application that would allow users to create 
+                    'pools' of other users, and group them into teams for projects based on attributes about their 
+                    personality and work experience. Created for a university assignment. <br/>
+                    ** Note that this is not an application - only an exercise in UI design.
+              </p>
+              <ItemLink link={"https://github.com/RealEeveahy/TeamsRUs"} iconSource={"resource/gh_icon.png"}/>
+            </Item>
           </Section>
           </div>
         </div>
