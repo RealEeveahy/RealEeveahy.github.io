@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function Section({sectionName, children})
 {
@@ -67,18 +68,47 @@ function ItemTag({content, colour})
 
 function ItemLink({link, iconSource})
 {
+  const [hovering, setHovering] = useState(false);
+  const handleHoverEnter = () => {
+    setHovering(true);
+  };
+  const handleHoverExit = () => {
+    setHovering(false);
+  };
   return (
-    <a href={link}>
-      <img src={iconSource} className="itemLink"/>
-    </a>
+    <div onMouseEnter={handleHoverEnter} onMouseLeave={handleHoverExit}>
+      <a href={link}>
+        <img src={iconSource} className="itemLink" 
+        style={{opacity: hovering ? "100%" : "60%" }}/>
+      </a>
+    </div>
   )
 }
 
 function App() {
+  const [home, switchHome] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      console.log(window.scrollY);
+      if(window.scrollY < 200) {
+        switchHome(true);
+      }
+      else {
+        switchHome(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
   return (
-    <div>
+    <div className={home ? "upper" : "lower"}>
       <span className="buttonPanel">
-          <button className="homeButton"></button>
+          <button className="homeButton">
+            <img src="resource/up.gif" alt="home icon" style={{height:'20px', width:'20px', padding:'0px 0px 0px 0px'}}/>
+          </button>
           <a href="https://www.linkedin.com/in/mae-mclean-738238255/">
               <img src="resource/li_icon.png" className="socialButton"/>
           </a>
@@ -86,16 +116,16 @@ function App() {
               <img src="resource/gh_icon.png" className="socialButton"/>
           </a>
         </span>
-      <div style={{backgroundColor: '#FFFFFF'}}>
+      <div>
         <div className="mainBody">
-          <div id="home" style={{marginTop: '350px', marginBottom: '60px'}}>
+          <div id="home" style={{paddingTop: '450px', marginBottom: '120px'}}>
             <h1 className="helloMessage">
                 Hey! I'm Mae, 
             </h1>
             <h2 className="helloMessage" style={{fontSize: '20px'}}>
                 an aspiring developer interested in applications and games.
             </h2>
-            <p style={{marginTop: '5px', marginLeft: '5px'}}>
+            <p style={{marginTop: '5px', marginLeft: '5px', paddingRight: '20px'}}>
                 I'm a second year student at Edith Cowan University studying a 
                 Bachelor of Computer Science and majoring in Software Engineering. 
                 <br/><br/>
@@ -104,10 +134,10 @@ function App() {
             </p>
           </div>
       </div>
-      <div style={{backgroundColor: '#413D46'}}>
-        <div className="mainBody lowerHeading">
-          <div id="intro" className="bioContainer contentSection">
-              <p>
+      <div>
+        <div className="mainBody">
+          <div id="intro" className="bioContainer contentSection bioFlex">
+              <p className="bioText">
                   Hello! I'm Mae McLean, a second-year Bachelor of Computer Science student majoring in Software Engineering 
                   at Edith Cowan University. I have 4 years experience in retail & customer service, and I am actively 
                   looking to transition into a position or internship that better suits my skill-set. When I'm not 
@@ -126,7 +156,7 @@ function App() {
                   <br/><br/>
                   I am currently enhancing my skills by putting a high effort into my units at university, learning as much as possible. 
                   Here I have learned languages and frameworks which I may not have sought out alone, such as Dart and Flutter for mobile 
-                  app development, as well as learning to use SQL with SQL Server Management 20. Additionally, I am regularly working on 
+                  app development, as well as learning to use SQL with SQL Server Management Studio. Additionally, I am regularly working on 
                   receiving qualifications from training providers like Cisco Academy and LinkedIn Learning to fill gaps in, and further 
                   strengthen my skill set.
                   <br/><br/>
@@ -135,24 +165,26 @@ function App() {
                   I believe that the experiences, tasks, and people I will meet in any of these roles will be a 
                   great opportunity to expand my horizons, build on my knowledge, and grow into a more polished developer.
               </p>
-
-              <div className='skillList'>
-                <p>My Languages: </p>
-                <SkillWidget skillName={"C#"} imgSource={"resource/Csharp_icon.png"}/>
-                <SkillWidget skillName={"Python"} imgSource={"resource/python_icon.png"}/>
-                <SkillWidget skillName={"C++"} imgSource={"resource/cplusplus_icon.png"}/>
-                <SkillWidget skillName={"JavaScript"} imgSource={"resource/javascript_icon.png"}/>
-                <SkillWidget skillName={"HTML & CSS"} imgSource={"resource/html_css_icon.png"}/>
-                <SkillWidget skillName={"Dart"} imgSource={"resource/dart_icon.png"}/>
-                <SkillWidget skillName={"XAML"} imgSource={"resource/xaml_icon.png"}/>
-                <SkillWidget skillName={"SQL"} imgSource={"resource/sql_icon.png"}/>
-
-                <p>My Frameworks and Software: </p>
-                <SkillWidget skillName={"Unity"} imgSource={"resource/unity_icon.png"}/>
-                <SkillWidget skillName={"React"} imgSource={"logo512.png"}/>
-                <SkillWidget skillName={"Flutter"} imgSource={"resource/flutter_icon.png"}/>
-                <SkillWidget skillName={".NET"} imgSource={"resource/dotnet_icon.png"}/>
-
+              
+              <div className='skillsFlex'>
+                <div className='skillList'>
+                  <p>My Languages: </p>
+                  <SkillWidget skillName={"C#"} imgSource={"resource/Csharp_icon.png"}/>
+                  <SkillWidget skillName={"Python"} imgSource={"resource/python_icon.png"}/>
+                  <SkillWidget skillName={"C++"} imgSource={"resource/cplusplus_icon.png"}/>
+                  <SkillWidget skillName={"JavaScript"} imgSource={"resource/javascript_icon.png"}/>
+                  <SkillWidget skillName={"HTML & CSS"} imgSource={"resource/html_css_icon.png"}/>
+                  <SkillWidget skillName={"Dart"} imgSource={"resource/dart_icon.png"}/>
+                  <SkillWidget skillName={"XAML"} imgSource={"resource/xaml_icon.png"}/>
+                  <SkillWidget skillName={"SQL"} imgSource={"resource/sql_icon.png"}/>
+                </div>
+                <div className='skillList'>
+                  <p>My Frameworks and Software: </p>
+                  <SkillWidget skillName={"Unity"} imgSource={"resource/unity_icon.png"}/>
+                  <SkillWidget skillName={"React"} imgSource={"logo512.png"}/>
+                  <SkillWidget skillName={"Flutter"} imgSource={"resource/flutter_icon.png"}/>
+                  <SkillWidget skillName={".NET"} imgSource={"resource/dotnet_icon.png"}/>
+                </div>
               </div>
           </div>
 
