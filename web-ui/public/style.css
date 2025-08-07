@@ -43,8 +43,40 @@ body {
     margin-left: 10%;
 }
 
+.bioContainer {
+    display: flex;
+    margin-top: 50px;
+}
+
+.skillList {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    margin-right: 200px;
+    margin-left: 350px;
+}
+
+.skillContainer {
+    display: inline-block;
+    width: 150px;
+}
+
+.skillIcon {
+    width: 40px;
+    height: 40px;
+    float: left;
+}
+
+.skillText {
+    float: right;
+    margin-top: 10px;
+    padding-left: 15px;
+    text-align: right;
+}
+
 .contentSection {
-    padding-top: 100px;
+    padding-bottom: 80px;
+    padding-top: 20px;
 }
 
 .sectionHeader {
@@ -67,12 +99,16 @@ body {
     margin-top: 30px;
 }
 
+.imageContainer {
+    border-radius: 20px;
+    padding: 20px;
+    float: left;
+}
+
 .piImage {
+    object-fit: contain;
     max-width: 120px;
     max-height: 120px;
-    float: left;
-    padding: 20px;
-    border-radius: 20px;
 }
 
 .descriptionContainer {
