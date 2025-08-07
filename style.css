@@ -1,28 +1,24 @@
 .homeButton{
-    top: 0;
-    left: 0;
-    background-color: green;
+    background-color: white;
     height: 30px;
     width: 30px;
     border-radius: 20px;
-    float: left;
-    position: sticky;
 }
 .socialButton{
-    top: 0;
-    left: 0;
     height: 30px;
     width: 30px;
     border-radius: 20px;
     margin-top: 5px;
-    float: left;
-    position: sticky;
 }
 
 .buttonPanel {
+    position: fixed;
+    top: 10px;
+    left: 1%;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 5px;
+    background: transparent;;
 }
 
 head {
@@ -46,19 +42,53 @@ body {
 .bioContainer {
     display: flex;
     margin-top: 50px;
+    margin-right: 10%;
+}
+
+.bioFlex {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.bioText {
+    flex: 2;
+    min-width: 250px;
+}
+
+.skillsFlex {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    gap: 20px;
+    flex: 1;
 }
 
 .skillList {
     display: flex;
     flex-direction: column;
-    float: right;
-    margin-right: 200px;
-    margin-left: 350px;
+    margin-left: 20px;
 }
 
 .skillContainer {
     display: inline-block;
     width: 150px;
+}
+
+@media (max-width: 800px) {
+    .bioFlex{
+        flex-direction: column;
+    }
+    .skillsFlex {
+        flex-direction: row;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 20px;
+    }
+    .bioText {
+        width: 100%;
+    }
 }
 
 .skillIcon {
@@ -77,11 +107,26 @@ body {
 .contentSection {
     padding-bottom: 80px;
     padding-top: 20px;
+    padding-right: 50px;
 }
 
 .sectionHeader {
     font-size: 18px;
     font-weight: bold;
+}
+
+.upper {
+    background-color: #FFFFFF;
+    color: black;
+}
+.lower {
+    background-color: #413D46;
+    color: #FFFFFF;
+}
+
+.upper, .lower {
+    transition: background-color 0.8s ease;
+    transition: color 0.8s ease;
 }
 
 .lowerHeading {
@@ -119,13 +164,27 @@ body {
 }
 
 p.itemDescription {
+    display: block;
+    margin-top: 30px;
     padding: 20px;
     color: black;
+}
+
+@media (max-width: 800px) {
+    .portfolioItem {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+    .imageContainer {
+        margin-bottom: 20px;
+    }
 }
 
 .itemTag {
     float: left;
     margin-top: -30px;
+    margin-bottom: 40px;
     margin-left: 20px;
     height: fit-content;
     padding-left: 15px;
